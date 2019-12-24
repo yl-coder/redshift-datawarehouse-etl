@@ -89,7 +89,7 @@ song_table_create = ("create table if not exists songs\
 (\
 	song_id varchar,\
 	title varchar,\
-	artist_id varchar,\
+	artist_id varchar not null,\
 	year int,\
 	duration decimal,\
     primary key(song_id)\
