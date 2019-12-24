@@ -4,18 +4,21 @@ from sql_queries import copy_table_queries, insert_table_queries
 
 
 def load_staging_tables(cur, conn):
+    """Loads staging table with content from s3"""
     for query in copy_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def insert_tables(cur, conn):
+    """Inserts tables with content"""
     for query in insert_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def main():
+    """Main point of entry"""
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
 
